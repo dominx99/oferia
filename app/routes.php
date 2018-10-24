@@ -1,5 +1,3 @@
 <?php
 
-$app->get('/', function () {
-    return 'home';
-});
+$app->get('/', 'HomeController:index');
