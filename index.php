@@ -1,12 +1,15 @@
 <?php
 
+session_start();
+
 require_once './vendor/autoload.php';
 
-use Slim\App;
+$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 $settings = require './app/settings.php';
 
-$app = new App($settings);
+$app = new \Slim\App($settings);
 
 require './app/dependencies.php';
 require './app/routes.php';
