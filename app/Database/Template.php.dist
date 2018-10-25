@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use App\Migration\Migration;
+use App\Database\Migration;
 
 class $className extends Migration
 {

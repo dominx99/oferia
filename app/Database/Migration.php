@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Migration;
+namespace App\Database;
 
 use Illuminate\Database\Capsule\Manager;
 use Phinx\Migration\AbstractMigration;
