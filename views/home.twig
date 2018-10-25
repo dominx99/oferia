@@ -3,5 +3,43 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-    Home
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card bg-dark text-light">
+                    <div class="card-header bg-primary">Filtry</div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="profession" id="php" value="php" checked>
+                            <label class="form-check-label" for="php">
+                                PHP
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="profession" id="js" value="js">
+                            <label class="form-check-label" for="js">
+                                JS
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="profession" id="cpp" value="c++">
+                            <label class="form-check-label" for="cpp">
+                                CPP
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 mb-4">
+                <div class="card bg-dark text-light">
+                    <div class="card-header bg-dark">Oferty</div>
+                    <div class="card-body">
+                        <p>oferta 1</p>
+                        <p>oferta 2</p>
+                        <p>oferta 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

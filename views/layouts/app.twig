@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="{{ base_url() }}/dist/css/main.min.css">
 </head>
 <body>
-    <main>
+
+    <header>
+        {% include "partials/navbar.twig" %}
+    </header>
+
+    <main class="mt-5">
         {% block content %}{% endblock %}
     </main>
 

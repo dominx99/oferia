@@ -1,1 +1,8 @@
-//
+// Variables
+@import './vendor/variables.scss';
+
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Only for main page
+@import './layouts/main.scss';
