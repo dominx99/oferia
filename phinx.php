@@ -18,7 +18,7 @@ return [
     ],
     'migration_base_class' => 'Migration',
     'templates'            => [
-        'file' => './app/Migration/Template.php.dist',
+        'file' => './app/Database/Template.php.dist',
     ],
     'environments'         => [
         'default_migration_table' => 'migrations',
