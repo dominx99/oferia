@@ -23,7 +23,5 @@ class App extends SlimApp
 
         require __DIR__ . '/dependencies.php';
         require __DIR__ . '/routes/api.php';
-
-        return $app;
     }
 }
