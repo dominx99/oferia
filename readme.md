@@ -4,7 +4,7 @@
 4. composer install
 5. npm install
 6. npm run gulp
-7. create database "slim-template"
+7. create database "slim_template"
 8. vendor\bin\phinx migrate
 9. vendor\bin\phinx seed:run
 
