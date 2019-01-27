@@ -4,6 +4,7 @@
 /docker
 /.config
 /.npm
+/.composer
 
 .env
 composer.lock
