@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock title %} | Board</title>
+    <title>{% block title %}{% endblock title %} | Slim Template</title>
 
     <link rel="stylesheet" href="{{ base_url() }}/dist/css/main.min.css">
 </head>
 <body>
 
-    <header>
-        {% include "partials/navbar.twig" %}
-    </header>
-
-    <main class="mt-5">
+    <main>
         {% block content %}{% endblock %}
     </main>
 

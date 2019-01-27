@@ -1,10 +1,12 @@
 {
-  "name": "board",
+  "name": "slim-template",
   "version": "1.0.0",
-  "description": "Board project",
+  "description": "Slim template project",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "watch": "gulp watch"
   },
   "author": "",
   "license": "ISC",

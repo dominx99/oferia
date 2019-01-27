@@ -23,7 +23,7 @@ abstract class Seeder extends AbstractSeed
         $faker   = Faker::create();
         $factory = new Factory($faker);
 
-        $factories = __DIR__ . '\..\..\db\factories';
+        $factories = __DIR__ . '/../../db/factories';
         $dir       = opendir($factories);
 
         while ($entry = readdir($dir)) {
@@ -31,7 +31,7 @@ abstract class Seeder extends AbstractSeed
                 continue;
             }
 
-            require_once $factories . '\\' . $entry;
+            require_once $factories . '/' . $entry;
         }
 
         $this->factory = $factory;

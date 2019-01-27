@@ -1,10 +1,10 @@
 <?php
 
 use App\Database\Seeder;
-use App\Models\Offert;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factory;
 
-class JobsSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * @return void
@@ -14,7 +14,7 @@ class JobsSeeder extends Seeder
         $this->boot();
 
         for ($i = 1; $i <= 30; $i++) {
-            $this->factory->create(Offert::class);
+            $this->factory->create(User::class);
         }
     }
 }

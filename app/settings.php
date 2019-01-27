@@ -4,14 +4,14 @@ return [
     'settings' => [
         'displayErrorDetails' => true,
         'db'                  => [
-            'driver'    => env('DATABASE_DRIVER', 'mysql'),
-            'host'      => env('DATABASE_HOST', 'localhost'),
-            'database'  => env('DATABASE_NAME', 'board'),
-            'username'  => env('DATABASE_USER', 'root'),
-            'password'  => env('DATABASE_SECRET', ''),
-            'charset'   => env('DB_CHARSET', 'utf8'),
-            'collation' => env('DB_COLLATION', 'utf8'),
-            'prefix'    => env('DB_PREFIX', 'board_'),
+            'driver'    => getenv('DB_DRIVER'),
+            'host'      => getenv('DB_HOST'),
+            'database'  => getenv('DB_NAME'),
+            'username'  => getenv('DB_USER'),
+            'password'  => getenv('DB_SECRET'),
+            'charset'   => getenv('DB_CHARSET'),
+            'collation' => getenv('DB_COLLATION'),
+            'prefix'    => getenv('DB_PREFIX'),
         ],
     ],
 ];

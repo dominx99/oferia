@@ -1,8 +1,5 @@
-// Variables
 @import './vendor/variables.scss';
 
-// Bootstrap
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap-4-grid/scss/grid.scss';
 
-// Only for main page
 @import './layouts/main.scss';
