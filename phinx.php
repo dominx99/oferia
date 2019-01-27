@@ -9,7 +9,7 @@ $settings = require './app/settings.php';
 
 $app       = new \Slim\App($settings);
 $container = $app->getContainer();
-$container->register(new \App\Services\Providers\EloquentServiceProvider($container));
+$container->register(new \App\Services\Providers\EloquentServiceProvider());
 
 return [
     'paths'                => [
