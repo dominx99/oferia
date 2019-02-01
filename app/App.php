@@ -9,10 +9,11 @@ class App extends SlimApp
     /**
      * Constructor of App
      * It loads all dependencies, routes etc.
+     * @param string $envFilename
      */
-    public function __construct()
+    public function __construct(string $envFilename = '.env')
     {
-        $dotenv = new \Dotenv\Dotenv(__DIR__ . '/..//');
+        $dotenv = new \Dotenv\Dotenv(__DIR__ . '/..//', $envFilename);
         $dotenv->load();
 
         $app = $this;

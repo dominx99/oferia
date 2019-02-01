@@ -31,7 +31,7 @@ abstract class Seeder extends AbstractSeed
                 continue;
             }
 
-            require_once $factories . '/' . $entry;
+            require $factories . '/' . $entry;
         }
 
         $this->factory = $factory;

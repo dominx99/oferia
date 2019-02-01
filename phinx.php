@@ -2,8 +2,10 @@
 
 require_once './vendor/autoload.php';
 
-$loader = new \Dotenv\Dotenv(__DIR__);
-$loader->load();
+if (!getenv('APP_ENV')) {
+    $loader = new \Dotenv\Dotenv(__DIR__);
+    $loader->load();
+}
 
 $settings = require './app/settings.php';
 
