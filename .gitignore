@@ -1,7 +1,6 @@
 /vendor
 /node_modules
 /dist
-/docker
 /.config
 /.npm
 /.composer
@@ -9,6 +8,5 @@
 .env
 composer.lock
 package-lock.json
-docker-compose.yml
 .v8flags*
 .tags
