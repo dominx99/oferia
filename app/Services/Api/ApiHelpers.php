@@ -1,0 +1,88 @@
+<?php
+
+namespace App\Services\Api;
+
+use App\Services\Api\StatusMessage;
+use Slim\Http\Response;
+use Slim\Http\StatusCode;
+
+trait ApiHelpers
+{
+    /**
+     * @var integer
+     */
+    protected $status = StatusCode::HTTP_OK;
+
+    /**
+     * @var string
+     */
+    protected $message = StatusMessage::OK;
+
+    /**
+     * @param array $params
+     * @return \Slim\Http\Response
+     */
+    public function respondOk(array $params = []): Response
+    {
+        $this->setStatus(StatusCode::HTTP_OK);
+        $this->setMessage(StatusMessage::OK);
+
+        return $this->respond($params);
+    }
+
+    /**
+     * @param array $params
+     * @param integer $status
+     * @param string $message
+     * @return \Slim\Http\Response
+     */
+    public function respondError(string $message = null, int $status = null, array $params = []): Response
+    {
+        if (!$status) {
+            $this->setStatus(StatusCode::HTTP_BAD_REQUEST);
+        } else {
+            $this->setStatus($status);
+        }
+
+        if (!$message) {
+            $this->setMessage(StatusMessage::ERROR);
+        } else {
+            $this->setMessage($message);
+        }
+
+        $this->respond($params, $status);
+    }
+
+    /**
+     * @param array $params
+     * @param integer $status
+     * @param integer $encodingOptions
+     * @return \Slim\Http\Response
+     */
+    public function respond(array $params = [], int $status = null, $encodingOptions = 0): Response
+    {
+        if ($this->message) {
+            $params['status'] = $this->message;
+        }
+
+        return (new Response())->withJson($params, $status, $encodingOptions);
+    }
+
+    /**
+     * @param integer $status
+     * @return void
+     */
+    protected function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param string $message
+     * @return void
+     */
+    protected function setMessage(string $message): void
+    {
+        $this->message = $message;
+    }
+}

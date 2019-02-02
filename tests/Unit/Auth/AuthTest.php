@@ -56,6 +56,16 @@ class AuthTest extends BaseTestCase
     }
 
     /** @test */
+    public function that_user_function_returns_user()
+    {
+        $user = $this->createUser();
+
+        $this->auth->authenticate($user->id);
+
+        $this->assertEquals($user->id, $this->auth->user()->id);
+    }
+
+    /** @test */
     public function that_attempt_works_and_user_is_authenticated()
     {
         $user = $this->createUser([

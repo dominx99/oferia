@@ -34,6 +34,16 @@ class BaseTestCase extends TestCase
         }
     }
 
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        $traits = array_flip(class_uses_recursive(static::class));
+        if (isset($traits[DatabaseTrait::class])) {
+            $this->rollback();
+        }
+    }
+
     public function createApplication(): App
     {
         return new App('.env.testing');
@@ -70,8 +80,8 @@ class BaseTestCase extends TestCase
         $cookies      = [];
         $serverParams = $env->all();
         $body         = new RequestBody();
-        $request      = new Request($options['method'], $uri, $headers, $cookies, $serverParams, $body);
 
+        $request = new Request($options['method'], $uri, $headers, $cookies, $serverParams, $body);
         $request = $request->withParsedBody($params);
         $request = $request->withHeader('Content-Type', $options['content_type']);
         $request = $request->withMethod($options['method']);

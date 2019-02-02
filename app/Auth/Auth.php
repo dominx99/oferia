@@ -24,6 +24,18 @@ class Auth
     }
 
     /**
+     * @return false|\App\Models\User
+     */
+    public function user()
+    {
+        if (!$this->check()) {
+            return false;
+        }
+
+        return User::find($_SESSION['user']);
+    }
+
+    /**
      * @return void
      */
     public function logout(): void
