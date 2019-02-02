@@ -8,8 +8,11 @@ php:
 services:
   - mysql
 
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS oferia_test;'
+
 before_script:
-  - cp .env.example .env
+  - cp .env.travis .env.testing
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
