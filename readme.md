@@ -1,10 +1,5 @@
-1. git clone https://github.com/dominx99/slim-template.git slim-template
-2. cd slim-template
-3. cp .env.example .env
-4. composer install
-5. npm install
-6. npm run gulp
-7. create database "slim_template"
-8. vendor\bin\phinx migrate
-9. vendor\bin\phinx seed:run
+# Oferia project
 
+[![Build Status](https://scrutinizer-ci.com/g/dominx99/oferia/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dominx99/oferia/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/dominx99/oferia/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dominx99/oferia/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dominx99/oferia/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dominx99/oferia/?branch=master)
