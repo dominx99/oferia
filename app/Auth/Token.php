@@ -18,6 +18,11 @@ class Token
     protected $aud;
 
     /**
+     * @var string $sign
+     */
+    protected $sign;
+
+    /**
      * @var array $allowed_algs
      */
     protected $algs;

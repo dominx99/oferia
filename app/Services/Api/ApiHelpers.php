@@ -38,34 +38,31 @@ trait ApiHelpers
      */
     public function respondError(string $message = null, int $status = null, array $params = []): Response
     {
-        if (!$status) {
+        if ($status === null) {
             $this->setStatus(StatusCode::HTTP_BAD_REQUEST);
         } else {
             $this->setStatus($status);
         }
 
-        if (!$message) {
+        if ($message === null) {
             $this->setMessage(StatusMessage::ERROR);
         } else {
             $this->setMessage($message);
         }
 
-        $this->respond($params, $status);
+        return $this->respond($params);
     }
 
     /**
      * @param array $params
-     * @param integer $status
      * @param integer $encodingOptions
      * @return \Slim\Http\Response
      */
-    public function respond(array $params = [], int $status = null, $encodingOptions = 0): Response
+    protected function respond(array $params, int $encodingOptions = 0): Response
     {
-        if ($this->message) {
-            $params['status'] = $this->message;
-        }
+        $params = array_merge(['status' => $this->message], $params);
 
-        return (new Response())->withJson($params, $status, $encodingOptions);
+        return (new Response)->withJson($params, $this->status, $encodingOptions);
     }
 
     /**

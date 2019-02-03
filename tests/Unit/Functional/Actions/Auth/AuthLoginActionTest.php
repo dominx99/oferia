@@ -5,7 +5,9 @@ namespace App\Functional\Actions\Auth;
 use App\Auth\Auth;
 use App\BaseTestCase;
 use App\DatabaseTrait;
+use App\Services\Api\StatusMessage;
 use Firebase\JWT\JWT;
+use Slim\Http\StatusCode;
 
 class AuthLoginActionTest extends BaseTestCase
 {
@@ -49,7 +51,21 @@ class AuthLoginActionTest extends BaseTestCase
             'password' => $password,
         ]);
 
-        $this->assertTrue($response->isServerError());
+        $this->assertEquals(StatusCode::HTTP_BAD_REQUEST, $response->getStatusCode());
+    }
+
+    /** @test */
+    public function that_not_valid_credentials_returns_errors()
+    {
+        $response = $this->runApp('post', '/api/auth/login', [
+            'email' => 'test@test.com',
+        ]);
+
+        $responseData = json_decode((string) $response->getBody(), true);
+
+        $this->assertArrayHasKey('errors', $responseData);
+        $this->assertEquals(StatusMessage::VALIDATION_ERROR, $responseData['status']);
+        $this->assertEquals(StatusCode::HTTP_BAD_REQUEST, $response->getStatusCode());
     }
 
     public function wrong_credentials_provider()

@@ -10,3 +10,7 @@ $container[\App\Auth\Auth::class] = function () {
 $container[\App\Auth\Token::class] = function () {
     return new \App\Auth\Token();
 };
+
+$container[\Rakit\Validation\Validator::class] = function () {
+    return new \Rakit\Validation\Validator();
+};

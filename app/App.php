@@ -22,7 +22,6 @@ class App extends SlimApp
 
         parent::__construct($settings);
 
-        require_once __DIR__ . '/helpers.php';
         require __DIR__ . '/dependencies.php';
         require __DIR__ . '/routes/api.php';
     }
